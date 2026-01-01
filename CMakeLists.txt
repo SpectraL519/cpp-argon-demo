@@ -26,7 +26,7 @@ message(STATUS "[CMAKE_CXX_FLAGS = ${CMAKE_CXX_FLAGS}]")
 include(FetchContent)
 FetchContent_Declare(
     cpp-argon
-    GIT_REPOSITORY https://github.com/SpectraL519/cpp-ap.git
+    GIT_REPOSITORY https://github.com/SpectraL519/cpp-argon.git
     GIT_TAG ${ARGON_TAG}
 )
 FetchContent_MakeAvailable(cpp-argon)

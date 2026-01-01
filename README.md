@@ -57,3 +57,7 @@ This generate a target for each of the demo projects. To execute the built progr
 ```shell
 bazel run //<demo-project-name>:<demo-project-name> -- <command-line args>
 ```
+
+> [!IMPORTANT]
+> Building with bazel requires having Bzlmod enabled.
+> **NOTE:** For newer versions (>= 7.0.0) Bzlmod is enabled by default.

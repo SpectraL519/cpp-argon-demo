@@ -1,6 +1,6 @@
 cc_binary(
-    name = "ap_git",
+    name = "argon_git",
     srcs = ["main.cpp"],
-    deps = ["@cpp-ap//:cpp-ap"],
+    deps = ["@cpp-argon//:cpp-argon"],
     visibility = ["//visibility:public"],
 )

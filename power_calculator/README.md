@@ -1,4 +1,4 @@
-# CPP-AP demo: power calculator
+# CPP-ARGON demo: power calculator
 
 This demo project demonstrates how to add positional and optional arguments to the parser's configuration.
 

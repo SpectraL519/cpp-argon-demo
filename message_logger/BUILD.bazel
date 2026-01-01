@@ -1,6 +1,6 @@
 cc_binary(
     name = "message_logger",
     srcs = ["main.cpp"],
-    deps = ["@cpp-ap//:cpp-ap"],
+    deps = ["@cpp-argon//:cpp-argon"],
     visibility = ["//visibility:public"],
 )

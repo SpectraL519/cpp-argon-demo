@@ -1,4 +1,4 @@
-#include <ap/argument_parser.hpp>
+#include <argon/argument_parser.hpp>
 
 #include <bitset>
 #include <iostream>
@@ -34,20 +34,19 @@ void convert_numbers(const std::vector<std::size_t>& numbers, std::string_view b
         convert_to_decimal(numbers);
 }
 
-
 int main(int argc, char* argv[]) {
-    ap::argument_parser parser("convert-numbers");
+    argon::argument_parser parser("convert-numbers");
     parser.program_description("Converts given positive integers into a specified base format")
-          .default_arguments(ap::default_argument::o_help);
+        .default_arguments(argon::default_argument::o_help);
 
     parser.add_optional_argument<std::size_t>("numbers", "n")
-          .nargs(ap::nargs::any())
-          .help("positive integer value");
+        .nargs(argon::nargs::any())
+        .help("positive integer value");
     parser.add_optional_argument("base", "b")
-          .nargs(1)
-          .default_values("dec")
-          .choices({ "bin", "dec", "hex" })
-          .help("output number format base");
+        .nargs(1)
+        .default_values("dec")
+        .choices({"bin", "dec", "hex"})
+        .help("output number format base");
 
     parser.try_parse_args(argc, argv);
 

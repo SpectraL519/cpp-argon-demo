@@ -1,17 +1,17 @@
-#include <ap/argument_parser.hpp>
+#include <argon/argument_parser.hpp>
 
 #include <fstream>
 #include <iostream>
 #include <sstream>
 
 int main(int argc, char* argv[]) {
-    ap::argument_parser parser("merge-files");
+    argon::argument_parser parser("merge-files");
     parser.program_description("Merges multiple input text files into a single output file")
-          .default_arguments(
-            ap::default_argument::o_help,
-            ap::default_argument::o_multi_input,
-            ap::default_argument::o_output
-          );
+        .default_arguments(
+            argon::default_argument::o_help,
+            argon::default_argument::o_multi_input,
+            argon::default_argument::o_output
+        );
 
     parser.try_parse_args(argc, argv);
 

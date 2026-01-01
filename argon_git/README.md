@@ -1,6 +1,6 @@
-# CPP-AP demo: AP-GIT
+# CPP-ARGON demo: ARGON-GIT
 
-This demo project demonstrates how to build a **multi-command CLI application** with `ap::argument_parser` using **subparsers**, **argument groups**, and **default arguments**.
+This demo project demonstrates how to build a **multi-command CLI application** with `argon::argument_parser` using **subparsers**, **argument groups**, and **default arguments**.
 It mimics a minimal subset of Git’s command-line interface.
 
 <br />
@@ -30,7 +30,7 @@ The program provides several Git-like subcommands:
 
 Global options:
 - `--help, -h` : print help
-- `--version, -v` : print version info (`ap-git 2.43.0`)
+- `--version, -v` : print version info (`argon-git 2.43.0`)
 
 <br />
 
@@ -50,23 +50,23 @@ Try running the program with:
 ### Example Program Execution
 
 ```shell
-> ./ap_git/run --version
-ap-git 2.43.0
+> ./argon_git/run --version
+argon-git 2.43.0
 
-> ./ap_git/run init --bare
+> ./argon_git/run init --bare
 Initializing bare repository..
 
-> ./ap_git/run add file1.cpp file2.cpp
+> ./argon_git/run add file1.cpp file2.cpp
 Adding files from pathspec: file1.cpp file2.cpp
 
-> ./ap_git/run commit -a -m "Fix bug in parser"
+> ./argon_git/run commit -a -m "Fix bug in parser"
 Committing (all tracked files staged) with message: "Fix bug in parser"
 
-> ./ap_git/run status -s
+> ./argon_git/run status -s
 On branch main
 M file1.cpp
 ?? file2.cpp
 
-> ./ap_git/run push
+> ./argon_git/run push
 Pushing branch main to origin
 ```

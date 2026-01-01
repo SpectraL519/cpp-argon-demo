@@ -1,27 +1,26 @@
-#include <ap/argument_parser.hpp>
+#include <argon/argument_parser.hpp>
+
 #include <fstream>
 
 int main(int argc, char** argv) {
-    ap::argument_parser parser("message-logger");
+    argon::argument_parser parser("message-logger");
     parser.program_description("Logs a given message based on the selected output mode")
-          .default_arguments(ap::default_argument::o_help);
+        .default_arguments(argon::default_argument::o_help);
 
     // Output mode selector arguments - exactly one argument must be used
     auto& out_mode = parser.add_group("Output Mode").required().mutually_exclusive();
     parser.add_optional_argument(out_mode, "file", "f")
-          .nargs(1)
-          .help("Write the message into a given file");
-    parser.add_flag(out_mode, "console", "c")
-          .help("Print the message to the console");
-    parser.add_flag(out_mode, "silent", "s")
-          .help("Do not output anything");
+        .nargs(1)
+        .help("Write the message into a given file");
+    parser.add_flag(out_mode, "console", "c").help("Print the message to the console");
+    parser.add_flag(out_mode, "silent", "s").help("Do not output anything");
 
     // Additional message options
     auto& msg_opts = parser.add_group("Message Options");
     parser.add_optional_argument(msg_opts, "message", "m")
-          .nargs(1)
-          .default_values("Hello from CPP-AP demo: message-logger!")
-          .help("Specify a custom message");
+        .nargs(1)
+        .default_values("Hello from CPP-ARGON demo: message-logger!")
+        .help("Specify a custom message");
 
     parser.try_parse_args(argc, argv);
 

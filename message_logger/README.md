@@ -1,4 +1,4 @@
-# CPP-AP demo: message-logger
+# CPP-ARGON demo: message-logger
 
 This demo project demonstrates how to bind arguments together using argument groups and define requirements for groupped arguments.
 
@@ -34,5 +34,5 @@ Try running the program with:
 
 ```shell
 > ./message_logger/run -c
-Hello from CPP-AP demo: message-output!
+Hello from CPP-ARGON demo: message-output!
 ```

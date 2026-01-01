@@ -1,6 +1,6 @@
-# CPP-AP demo: logging-mode
+# CPP-ARGON demo: logging-mode
 
-This demo project demonstrates how you can use the `ap::argument_parser` class with custom types (like enums), as well as the `default_values` and `implicit_values` parameters.
+This demo project demonstrates how you can use the `argon::argument_parser` class with custom types (like enums), as well as the `default_values` and `implicit_values` parameters.
 
 <br />
 
@@ -28,5 +28,5 @@ Check what happens when you run the program with:
 ### Example Program Execution
 ```shell
 > ./logging_mode/run -l n
-Welcome to CPP-AP demo: logging-mode!
+Welcome to CPP-ARGON demo: logging-mode!
 ```

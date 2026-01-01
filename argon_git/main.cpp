@@ -1,28 +1,28 @@
-#include <ap/argument_parser.hpp>
+#include <argon/argument_parser.hpp>
 
 int main(int argc, char* argv[]) {
     // top-level git parser
-    ap::argument_parser git("ap-git");
+    argon::argument_parser git("argon-git");
     git.program_version({.major = 2u, .minor = 43u, .patch = 0u})
-        .program_description("A minimal Git CLI clone built with CPP-AP")
-        .default_arguments(ap::default_argument::o_help, ap::default_argument::o_version);
+        .program_description("A minimal Git CLI clone built with CPP-ARGON")
+        .default_arguments(argon::default_argument::o_help, argon::default_argument::o_version);
 
     // subcommand: init
     auto& init =
         git.add_subparser("init")
-            .default_arguments(ap::default_argument::o_help)
+            .default_arguments(argon::default_argument::o_help)
             .program_description("Create an empty Git repository or reinitialize an existing one");
-    init.add_optional_argument<ap::none_type>("bare").help("Create a bare repository");
+    init.add_optional_argument<argon::none_type>("bare").help("Create a bare repository");
 
     // subcommand: add
     auto& add =
         git.add_subparser("add")
-            .default_arguments(ap::default_argument::o_help)
+            .default_arguments(argon::default_argument::o_help)
             .program_description("Add file contents to the index");
     auto& add_pathspec_args = add.add_group("Pathspec Arguments").required();
     add.add_positional_argument(add_pathspec_args, "pathspec")
         .required(false)
-        .nargs(ap::nargs::any())
+        .nargs(argon::nargs::any())
         .help("Files to add");
     add.add_flag(add_pathspec_args, "update", "u")
         .help("Update the index just where it already has an entry matching <pathspec>");
@@ -30,7 +30,7 @@ int main(int argc, char* argv[]) {
     // subcommand: commit
     auto& commit =
         git.add_subparser("commit")
-            .default_arguments(ap::default_argument::o_help)
+            .default_arguments(argon::default_argument::o_help)
             .program_description("Record changes to the repository");
     commit.add_optional_argument("message", "m")
         .nargs(1)
@@ -42,14 +42,14 @@ int main(int argc, char* argv[]) {
     // subcommand: status
     auto& status =
         git.add_subparser("status")
-            .default_arguments(ap::default_argument::o_help)
+            .default_arguments(argon::default_argument::o_help)
             .program_description("Show the working tree status");
     status.add_flag("short", "s").help("Give the output in the short-format");
 
     // subcommand: push
     auto& push =
         git.add_subparser("push")
-            .default_arguments(ap::default_argument::o_help)
+            .default_arguments(argon::default_argument::o_help)
             .program_description("Update remote refs along with associated objects");
     push.add_positional_argument("remote").required(false).default_values("origin").help(
         "Remote repository (e.g. origin)"
@@ -72,11 +72,11 @@ int main(int argc, char* argv[]) {
         if (add.value<bool>("update")) {
             std::cout << "Updating index at matching pathspec";
             if (not pathspec.empty())
-                std::cout << " from paths: " << ap::util::join(pathspec);
+                std::cout << " from paths: " << argon::util::join(pathspec);
             std::cout << std::endl;
         }
         else if (not pathspec.empty()) {
-            std::cout << "Adding files from pathspec: " << ap::util::join(pathspec) << std::endl;
+            std::cout << "Adding files from pathspec: " << argon::util::join(pathspec) << std::endl;
         }
         else {
             std::cout << "No pathspec specified. Nothing to add." << std::endl;

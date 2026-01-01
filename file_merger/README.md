@@ -1,4 +1,4 @@
-# CPP-AP demo: file merger
+# CPP-ARGON demo: file merger
 
 This demo project demonstrates how you can use the default arguments.
 

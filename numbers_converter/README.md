@@ -1,4 +1,4 @@
-# CPP-AP demo: numbers converter
+# CPP-ARGON demo: numbers converter
 
 This demo project demonstrates how you can use an argument's parameters like *nargs*, *choices* or *default values*
 

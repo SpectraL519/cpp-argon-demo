@@ -6,7 +6,7 @@ alias(
 filegroup(
     name = "demos",
     srcs = [
-        "//ap_git:ap_git",
+        "//argon_git:argon_git",
         "//file_merger:file_merger",
         "//logging_mode:logging_mode",
         "//message_logger:message_logger",

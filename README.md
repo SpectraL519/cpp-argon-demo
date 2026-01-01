@@ -1,6 +1,6 @@
-# cpp-ap-demo
+# CPP-ARGON-DEMO
 
-A collection of the [CPP-AP](https://github.com/SpectraL519/cpp-ap) library demo projects.
+A collection of the [CPP-ARGON](https://github.com/SpectraL519/cpp-argon) library demo projects.
 
 <br />
 
@@ -20,7 +20,7 @@ A collection of the [CPP-AP](https://github.com/SpectraL519/cpp-ap) library demo
 | [Verbosity](/verbosity/) | Prints messages with varying levels of verbosity.<br/>**Demonstrates:** The usage of `none_type` arguments and compound argument flags. |
 | [Logging Mode](/logging_mode/) | Logs a message depending on the selected logging mode (`quiet`, `normal`, `verbose`).<br/>**Demonstrates:** The usage of custom argument value types (like enums). |
 | [Message Logger](/message_logger/) | Outputs a message to a file, console, or not at all.<br/>**Demonstrates:** The usage of argument groups. |
-| [AP-GIT](/ap_git/) | A minimal Git CLI clone with subcommands (`init`, `add`, `commit`, `status`, `push`).<br/>**Demonstrates:** The usage of subparsers for multi-command CLIs and complex argument configurations. |
+| [ARGON-GIT](/argon_git/) | A minimal Git CLI clone with subcommands (`init`, `add`, `commit`, `status`, `push`).<br/>**Demonstrates:** The usage of subparsers for multi-command CLIs and complex argument configurations. |
 
 
 <br />
@@ -57,3 +57,7 @@ This generate a target for each of the demo projects. To execute the built progr
 ```shell
 bazel run //<demo-project-name>:<demo-project-name> -- <command-line args>
 ```
+
+> [!IMPORTANT]
+> Building with bazel requires having Bzlmod enabled.
+> **NOTE:** For newer versions (>= 7.0.0) Bzlmod is enabled by default.

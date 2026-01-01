@@ -1,4 +1,4 @@
-# CPP-AP demo: verbosity
+# CPP-ARGON demo: verbosity
 
 This demo project demonstrates how you can use `none_type` arguments and compound argument flags.
 
@@ -27,6 +27,6 @@ Check what happens when you run the `verbosity` executable with:
 
 ```shell
 > ./verbosity/run -vv
-Welcome to the CPP-AP demo project: verbosity!
+Welcome to the CPP-ARGON demo project: verbosity!
 This project demostrates how to use compound argument flags
 ```

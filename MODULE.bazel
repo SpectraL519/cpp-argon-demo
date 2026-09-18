@@ -1,6 +1,6 @@
 module(
     name = "cpp_argon_demo",
-    version = "4.0.0",
+    version = "4.0.1",
 )
 
 git_repository = use_repo_rule("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
@@ -8,5 +8,7 @@ git_repository = use_repo_rule("@bazel_tools//tools/build_defs/repo:git.bzl", "g
 git_repository(
     name = "cpp-argon",
     remote = "https://github.com/SpectraL519/cpp-argon.git",
-    branch = "cpp-argon",
+    branch = "doc-gen-alignment",
 )
+
+bazel_dep(name = "rules_cc", version = "0.2.25")

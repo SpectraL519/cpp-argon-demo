@@ -19,7 +19,7 @@ void print_welcome_message(const std::size_t verbosity) {
 
 int main(int argc, char** argv) {
     argon::argument_parser parser("verbosity");
-    parser.program_description("Prints a welcome message with different verbosity levels")
+    parser.description("Prints a welcome message with different verbosity levels")
         .default_arguments(argon::default_argument::o_help);
 
     parser.add_optional_argument<argon::none_type>("verbose", "v");

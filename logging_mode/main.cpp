@@ -47,7 +47,7 @@ void print_welcome_message(const logging_mode mode) {
 
 int main(int argc, char** argv) {
     argon::argument_parser parser("logging-mode");
-    parser.program_description("Logs a welcome message based on the selected logging mode")
+    parser.description("Logs a welcome message based on the selected logging mode")
         .default_arguments(argon::default_argument::o_help);
 
     parser.add_optional_argument<logging_mode>("logging-mode", "l")

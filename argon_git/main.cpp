@@ -3,22 +3,22 @@
 int main(int argc, char* argv[]) {
     // top-level git parser
     argon::argument_parser git("argon-git");
-    git.program_version({.major = 2u, .minor = 43u, .patch = 0u})
-        .program_description("A minimal Git CLI clone built with CPP-ARGON")
+    git.version("v0.1.0")
+        .description("A minimal Git CLI clone built with CPP-ARGON")
         .default_arguments(argon::default_argument::o_help, argon::default_argument::o_version);
 
     // subcommand: init
     auto& init =
         git.add_subparser("init")
             .default_arguments(argon::default_argument::o_help)
-            .program_description("Create an empty Git repository or reinitialize an existing one");
+            .description("Create an empty Git repository or reinitialize an existing one");
     init.add_optional_argument<argon::none_type>("bare").help("Create a bare repository");
 
     // subcommand: add
     auto& add =
         git.add_subparser("add")
             .default_arguments(argon::default_argument::o_help)
-            .program_description("Add file contents to the index");
+            .description("Add file contents to the index");
     auto& add_pathspec_args = add.add_group("Pathspec Arguments").required();
     add.add_positional_argument(add_pathspec_args, "pathspec")
         .required(false)
@@ -31,7 +31,7 @@ int main(int argc, char* argv[]) {
     auto& commit =
         git.add_subparser("commit")
             .default_arguments(argon::default_argument::o_help)
-            .program_description("Record changes to the repository");
+            .description("Record changes to the repository");
     commit.add_optional_argument("message", "m")
         .nargs(1)
         .help("Use the given message as the commit message");
@@ -43,14 +43,14 @@ int main(int argc, char* argv[]) {
     auto& status =
         git.add_subparser("status")
             .default_arguments(argon::default_argument::o_help)
-            .program_description("Show the working tree status");
+            .description("Show the working tree status");
     status.add_flag("short", "s").help("Give the output in the short-format");
 
     // subcommand: push
     auto& push =
         git.add_subparser("push")
             .default_arguments(argon::default_argument::o_help)
-            .program_description("Update remote refs along with associated objects");
+            .description("Update remote refs along with associated objects");
     push.add_positional_argument("remote").required(false).default_values("origin").help(
         "Remote repository (e.g. origin)"
     );
@@ -68,7 +68,7 @@ int main(int argc, char* argv[]) {
     }
 
     if (add.finalized()) {
-        const auto pathspec = add.values("pathspec");
+        const auto& pathspec = add.values("pathspec");
         if (add.value<bool>("update")) {
             std::cout << "Updating index at matching pathspec";
             if (not pathspec.empty())

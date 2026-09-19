@@ -4,11 +4,14 @@
 
 int main(int argc, char** argv) {
     argon::argument_parser parser("message-logger");
-    parser.program_description("Logs a given message based on the selected output mode")
+    parser.description("Logs a given message based on the selected output mode")
         .default_arguments(argon::default_argument::o_help);
 
     // Output mode selector arguments - exactly one argument must be used
-    auto& out_mode = parser.add_group("Output Mode").required().mutually_exclusive();
+    auto& out_mode = parser.add_group("Output Mode")
+        .description("Defines the possible output (logging) modes - exactly one must be selected")
+        .required()
+        .mutually_exclusive();
     parser.add_optional_argument(out_mode, "file", "f")
         .nargs(1)
         .help("Write the message into a given file");
@@ -24,7 +27,7 @@ int main(int argc, char** argv) {
 
     parser.try_parse_args(argc, argv);
 
-    const std::string msg = parser.value("message");
+    const std::string& msg = parser.value("message");
 
     if (parser.has_value("file")) {
         std::ofstream out(parser.value("file"));

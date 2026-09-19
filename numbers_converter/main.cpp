@@ -36,7 +36,7 @@ void convert_numbers(const std::vector<std::size_t>& numbers, std::string_view b
 
 int main(int argc, char* argv[]) {
     argon::argument_parser parser("convert-numbers");
-    parser.program_description("Converts given positive integers into a specified base format")
+    parser.description("Converts given positive integers into a specified base format")
         .default_arguments(argon::default_argument::o_help);
 
     parser.add_optional_argument<std::size_t>("numbers", "n")
@@ -50,7 +50,7 @@ int main(int argc, char* argv[]) {
 
     parser.try_parse_args(argc, argv);
 
-    const auto numbers = parser.values<std::size_t>("numbers");
+    const auto& numbers = parser.values<std::size_t>("numbers");
     const auto base = parser.value("base");
 
     convert_numbers(numbers, base);

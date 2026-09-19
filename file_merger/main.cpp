@@ -6,7 +6,7 @@
 
 int main(int argc, char* argv[]) {
     argon::argument_parser parser("merge-files");
-    parser.program_description("Merges multiple input text files into a single output file")
+    parser.description("Merges multiple input text files into a single output file")
         .default_arguments(
             argon::default_argument::o_help,
             argon::default_argument::o_multi_input,
@@ -15,8 +15,8 @@ int main(int argc, char* argv[]) {
 
     parser.try_parse_args(argc, argv);
 
-    const auto input_file_name_list = parser.values("input");
-    const auto output_file_name = parser.value("output");
+    const auto& input_file_name_list = parser.values("input");
+    const auto& output_file_name = parser.value("output");
 
     std::ofstream output_file(output_file_name);
     if (not output_file.is_open())

@@ -50,7 +50,7 @@ int main(int argc, char* argv[]) {
 
     parser.try_parse_args(argc, argv);
 
-    const auto numbers = parser.values<std::size_t>("numbers");
+    const auto& numbers = parser.values<std::size_t>("numbers");
     const auto base = parser.value("base");
 
     convert_numbers(numbers, base);

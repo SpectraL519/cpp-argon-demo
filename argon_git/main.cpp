@@ -68,7 +68,7 @@ int main(int argc, char* argv[]) {
     }
 
     if (add.finalized()) {
-        const auto pathspec = add.values("pathspec");
+        const auto& pathspec = add.values("pathspec");
         if (add.value<bool>("update")) {
             std::cout << "Updating index at matching pathspec";
             if (not pathspec.empty())

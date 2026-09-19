@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
     parser.try_parse_args(argc, argv);
 
     const double base = parser.value<double>("base");
-    const std::vector<int> exponent_values = parser.values<int>("exponent");
+    const std::vector<int>& exponent_values = parser.values<int>("exponent");
 
     for (const int exponent : exponent_values) {
         std::cout << base << " ^ " << exponent << " = " << std::pow(base, exponent) << std::endl;

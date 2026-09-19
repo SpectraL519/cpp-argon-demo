@@ -15,8 +15,8 @@ int main(int argc, char* argv[]) {
 
     parser.try_parse_args(argc, argv);
 
-    const auto input_file_name_list = parser.values("input");
-    const auto output_file_name = parser.value("output");
+    const auto& input_file_name_list = parser.values("input");
+    const auto& output_file_name = parser.value("output");
 
     std::ofstream output_file(output_file_name);
     if (not output_file.is_open())

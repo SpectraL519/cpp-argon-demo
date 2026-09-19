@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
 
     parser.try_parse_args(argc, argv);
 
-    const std::string msg = parser.value("message");
+    const std::string& msg = parser.value("message");
 
     if (parser.has_value("file")) {
         std::ofstream out(parser.value("file"));
